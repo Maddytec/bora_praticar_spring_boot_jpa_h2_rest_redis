@@ -26,3 +26,27 @@ services:
 docker-compose -f redis-docker-compose.yml up -d 
 ```
     
+2. Adicionar as configurações do Redis no Projeto
+
+- 2.1. Adicionar as Dependencias do Redis no pom.xml do projeto
+```
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+- 2.2. Adicionar configuração de conexão com o Redis no application.yml do projeto
+  ```
+  spring:
+    cache:
+        type: redis
+        redis:
+            host: localhost
+            port: 6379
+  ```
+3. Implementações
+  - 3.1. Criar objeto ClienteRedis
+  - 3.2. Criar interface ClienteRedisRepository
+  - 3.3. Criar service ClienteRedisService
+       -  Adicionar metodo salvar 
+       -  Adicionar metodo consultar
