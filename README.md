@@ -16,10 +16,22 @@ Passos:
 version: '3'
 
 services:
+  #Service Redis
   redis:
-    image: redis:latest
+    container_name: redis
+    hostname: redis
+    image: redis
+
+  #Interface Grafica do Usuario (GUI)
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+    - REDIS_HOSTS=local:redis:6379
     ports:
-      - "6379:6379"
+    - "8081:8081"
 ```
 - No console acessar o diretório onde o redis-docker-compose.yml foi criado e executar o comando:
 ``` 
@@ -31,32 +43,23 @@ docker-compose -f redis-docker-compose.yml up -d
 - 2.1. Adicionar as Dependencias do Redis no pom.xml do projeto
 ```
 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
 ```
 - 2.2. Adicionar configuração de conexão com o Redis no application.yml do projeto
-  ```
-  version: '3'
-  services:
-    redis:
-        container_name: redis
-        hostname: redis
-        image: redis
+```
+spring:
 
-    redis-commander:
-        container_name: redis-commander
-        hostname: redis-commander
-        image: rediscommander/redis-commander:latest
-        restart: always
-        environment:
-        - REDIS_HOSTS=local:redis:6379
-        ports:
-        - "8081:8081"
-  ```
+  cache:
+    type: redis
+    redis:
+      host: localhost
+      port: 6379
+```
 3. Implementações
-- 3.1. Criar objeto ClienteRedis
-- 3.2. Criar interface ClienteRedisRepository
-- 3.3. Criar service ClienteRedisService
-    -  Adicionar metodo salvar
-    -  Adicionar metodo consultar
+  - 3.1. Criar objeto ClienteRedis
+  - 3.2. Criar interface ClienteRedisRepository
+  - 3.3. Criar service ClienteRedisService
+       -  Adicionar metodo salvar 
+       -  Adicionar metodo consultar
