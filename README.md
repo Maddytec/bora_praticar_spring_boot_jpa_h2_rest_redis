@@ -43,8 +43,8 @@ docker-compose -f redis-docker-compose.yml up -d
 - 2.1. Adicionar as Dependencias do Redis no pom.xml do projeto
 ```
 <dependency>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-data-redis</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
 ```
 - 2.2. Adicionar configuração de conexão com o Redis no application.yml do projeto
