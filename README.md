@@ -1,12 +1,9 @@
 # Ôooopáaaa Bora Praticar Spring Boot, JPA, H2, Rest, e Redis
-Nesta pratica vamos adicionar em nossa API Cliente Base o banco de dados Redis, que é uma banco de dados
-não relaciona de chave e valor.
+Nesta pratica vamos adicionar em nossa API Cliente Base o banco de dados Redis, que é uma banco de dados não relaciona de chave e valor.
 
-Problematica:
-Api com muitas requisições simultaneas que podem onerar o banco de dados relacional, sejam eles Mysql, PostgreSQL, Oracle entre outros.
+Problemática: Api com muitas requisições simultâneas que podem onerar o banco de dados relacional, sejam eles Mysql, PostgreSQL, Oracle entre outros.
 
-Objetivo:
-Adicionar o Redis ao nosso ecosistema. Desta forma, sugiro que abstraia outras soluções que você possa enchergar.
+Objetivo: Adicionar o Redis ao nosso ecosistema. Desta forma, sugiro que abstraia outras soluções que você possa enxergar.
 
 Passos:
 
