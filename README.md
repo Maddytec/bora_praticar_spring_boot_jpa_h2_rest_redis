@@ -3,7 +3,7 @@ Nesta pratica vamos adicionar em nossa API Cliente Base o banco de dados Redis, 
 
 Problemática: Api com muitas requisições simultâneas que podem onerar o banco de dados relacional, sejam eles Mysql, PostgreSQL, Oracle entre outros.
 
-Objetivo: Adicionar o Redis ao nosso ecosistema. Desta forma, sugiro que abstraia outras soluções que você possa enxergar.
+Objetivo: Adicionar o Redis ao nosso ecossistema. Desta forma, sugiro que abstraia outras soluções que você possa enxergar.
 
 Passos:
 
